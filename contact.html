@@ -1,0 +1,71 @@
+﻿<!DOCTYPE html>
+<html lang='zh-Hant-TW'>
+<head>
+<meta charset='UTF-8' />
+<meta name='viewport' content='width=device-width, initial-scale=1, maximum-scale=1' />
+<title>專人回覆</title>
+<link rel='dns-prefetch' href='http://lokema.com.tw'>
+</head>
+<body>
+<form class="form-container" accept-charset="UTF-8" autocomplete="on" method="post" action="http://lokema.com.tw/$common/form/saveform.asp" onsubmit="$.blockUI({message:'請稍候...',css:{border:'none',padding:'15px',backgroundColor:'#000','-webkit-border-radius':'10px','-moz-border-radius':'10px',opacity:.5,color:'#fff'}});">
+	<div class="form-title"><h2>專人回覆</h2></div>
+	<div class="form-title">姓名</div>
+	<img id="Form-Agent" src="form-contact.png" style="border:0; float:right;">
+	<input class="form-field" type="text" name="姓名" required /><br />
+	<div class="form-title">&nbsp;&nbsp;<span style='font-size:10px;'>[請勿輸入符號，市話請加區域碼]</span></div>
+	<input class="form-field" type="tel" name="電話" alt='9999999999' onblur='ChangeMask(this);CheckPhone(this);' required /><br />
+	<div class="form-title">裝機地址&nbsp;&nbsp;<span style='font-size:10px;'>[請提供完整門牌地址]</span></div>
+	<input class="form-field" type="text" name="地址" required /><br />
+	<div class="form-title">洽詢項目</div>
+	<select name="項目" class="form-field" required>
+		<option value="">-</option>
+		<option value="*新申請有線電視/寬頻上網*">新申請有線電視/寬頻上網</option>
+		<option value="*收視戶申請寬頻上網*">收視戶申請寬頻上網</option>
+		<option value="收視戶加裝數位機上盒/訂購頻道">收視戶加裝數位機上盒/訂購頻道</option>
+		<option value="寬頻上網用戶續約/升速/變更方案">寬頻上網用戶續約/升速/變更方案</option>
+		<option value="帳單/發票/繳費/帳務查詢">帳單/發票/繳費/帳務查詢</option>
+		<option value="停用/合約查詢/低收入戶優惠" >停用/合約查詢/低收入戶優惠</option>
+		<option value="室內移機/室外移機/加裝分線">室內移機/室外移機/加裝分線</option>
+		<option value="收視障礙/檢修/危線處理" >收視障礙/檢修/危線處理</option>
+		<option value="寬頻上網檢修/固定IP/上網時段">寬頻上網檢修/固定IP/上網時段</option>
+		<option value="公益頻道/自製節目/廣告託播">公益頻道/自製節目/廣告託播</option>
+		<option value="其它">其它[請於備註補充]</option>
+	</select>
+	<br />
+	<div class="form-title">LINE ID</div>
+	<input class="form-field" type="text" name="LINEid" /><br />
+	<div class="form-title">聯絡事項</div>
+	<textarea class="form-field" name="聯絡" rows="3" cols="30"></textarea><br />
+	<div class="submit-container">
+		<input class="submit-button" type="submit" value="發送" />
+	</div>
+	<input type="hidden" name="i" value="聯繫">
+	<span id="Option"></span>
+</form>
+</body>
+</html>
+<link href='style.css' rel='stylesheet' type='text/css'/>
+<script type='text/javascript' src='jquery.1.5.2.min.js'></script>
+<script type='text/javascript' src='setup.js'></script>
+<script type='text/javascript' src='jquery.meiomask.min.js'></script>
+<script type='text/javascript' src='jquery.blockui.min.js'></script>
+<script>
+$(document).ready(function(){
+	var int = document.referrer.lastIndexOf("//")+2;
+	var str = document.referrer.substr(int, document.referrer.length-int);
+	var String = '<input type="hidden" name="key" value="'+getParameterByName('key')+'"><input type="hidden" name="page" value="'+str+'"><input type="hidden" name="bg" value="'+getParameterByName('bg')+'">';
+	document.getElementById("Option").innerHTML = String;
+
+	$(".form-container").css("position","absolute");
+	$(".form-container").css("top", Math.max(0, (($(window).height() - $(".form-container").outerHeight()) / 2) + $(window).scrollTop()) + "px");
+	$(".form-container").css("left", Math.max(0, (($(window).width() - $(".form-container").outerWidth()) / 2) + $(window).scrollLeft()) + "px");
+	$(':input').setMask();
+	$('input[data-mask]').each(function() {
+		$(this).setMask($(this).data('mask'));
+	});
+	var BG = getParameterByName('bg');
+	if (BG != '') {
+		$('body').css('background-color',BG);
+	}
+});
+</script>

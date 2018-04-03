@@ -1,0 +1,83 @@
+﻿<!DOCTYPE html>
+<html lang='zh-Hant-TW'>
+<head>
+<meta charset='UTF-8' />
+<meta name='viewport' content='width=device-width, initial-scale=1, maximum-scale=1' />
+<title>線上申辦</title>
+<link rel='dns-prefetch' href='http://lokema.com.tw'>
+</head>
+<body>
+<form class="form-container" accept-charset="UTF-8" autocomplete="on" method="post" action="http://lokema.com.tw/$common/form/saveform.asp" onsubmit="$.blockUI({message:'請稍候...',css:{border:'none',padding:'15px',backgroundColor:'#000','-webkit-border-radius':'10px','-moz-border-radius':'10px',opacity:.5,color:'#fff'}});">
+	<div class="form-title"><h2>申裝洽詢</h2></div>
+	<div class="form-title">姓名</div>
+	<img id="Form-Agent" src="form-agent.png" style="border:0; float:right;">
+	<input class="form-field" type="text" name="姓名" required /><br />
+	<div class="form-title">聯絡電話&nbsp;&nbsp;<span style='font-size:10px;'>[請勿輸入符號，市話請加區域碼]</span></div>
+	<input class="form-field" type="tel" name="電話" alt='9999999999' onblur='CheckPhone(this);ChangeMask(this);' required /><br />
+	<div class="form-title">裝機地址&nbsp;&nbsp;<span style='font-size:10px;'>[請提供完整門牌地址]</span></div>
+	<input class="form-field" type="text" name="地址" required /><br />
+	<div class="form-title">裝機項目</div>
+	<select name="項目" class="form-field" required>
+		<option value="">-</option>
+		<option value="*新申裝有線電視*">新申裝有線電視</option>
+		<option value="*新申裝有線電視+數位電視*">新申裝有線電視+數位電視</option>
+		<option value="*新申裝有線電視+光纖上網*">新申裝有線電視+光纖上網</option>
+		<option value="收視戶加裝有線電視分線">收視戶加裝有線電視分線</option>
+		<option value="收視戶加裝數位機上盒">收視戶加裝數位機上盒</option>
+		<option value="*收視戶加裝光纖上網*">收視戶加裝光纖上網</option>
+		<option value="*僅申裝光纖上網(不安裝有線電視)*">僅申裝光纖上網(不安裝有線電視)</option>
+		<option value="其它">其它[請在下方補充說明]</option>
+	</select>
+	<br />
+	<div class="form-title">裝機日期</div>
+	<input id="SetupDate" class="form-field" type="text" name="日期" /><br />
+	<div class="form-title">聯絡事項</div>
+	<textarea class="form-field" name="聯絡" rows="3" cols="30"></textarea><br />
+	<div class="submit-container">
+		<input class="submit-button" type="submit" value="發送" />
+	</div>
+	<input type="hidden" name="i" value="申辦">
+	<span id="Option"></span>
+</form>
+</body>
+</html>
+<link href='style.css' rel='stylesheet' type='text/css'/>
+<link href='jqueryui.lightness.min.css' rel='stylesheet' type='text/css' />
+<script type='text/javascript' src='jquery.1.5.2.min.js'></script>
+<script type='text/javascript' src='setup.js'></script>
+<script type='text/javascript' src='jquery-ui.min.js'></script>
+<script type='text/javascript' src='jquery.meiomask.min.js'></script>
+<script type='text/javascript' src='jquery.blockui.min.js'></script>
+<script>
+$(document).ready(function(){
+	var int = document.referrer.lastIndexOf("//")+2;
+	var str = document.referrer.substr(int, document.referrer.length-int);
+	var String = '<input type="hidden" name="key" value="'+getParameterByName('key')+'"><input type="hidden" name="page" value="'+str+'"><input type="hidden" name="bg" value="'+getParameterByName('bg')+'">';
+	document.getElementById("Option").innerHTML = String;
+
+	$(".form-container").css("position","absolute");
+	$(".form-container").css("top", Math.max(0, (($(window).height() - $(".form-container").outerHeight()) / 2) + $(window).scrollTop()) + "px");
+	$(".form-container").css("left", Math.max(0, (($(window).width() - $(".form-container").outerWidth()) / 2) + $(window).scrollLeft()) + "px");
+	$(':input').setMask();
+	$('input[data-mask]').each(function() {
+		$(this).setMask($(this).data('mask'));
+	});
+	var BG = getParameterByName('bg');
+	if (BG != '') {
+		$('body').css('background-color',BG);
+	}
+});
+$(function() {
+	$.datepicker.setDefaults({
+		firstDay: 1,
+		dayNamesMin: ['日', '一', '二', '三', '四', '五', '六'],
+		monthNames: ['一月','二月','三月','四月','五月','六月','七月','八月','九月','十月','十一月','十二月'],
+		duration: 'fast'
+	});
+	var Mds = '+1';
+	var Hrs = new Date().getHours();
+	if (Hrs>=16) {Mds='+2'};
+	$('#SetupDate').datepicker({minDate: Mds, maxDate: '+28D' });
+	$('#SetupDate').datepicker({defaultDate: +1});
+});
+</script>
