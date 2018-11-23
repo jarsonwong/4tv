@@ -8,12 +8,12 @@
 form{border:1px solid #f2e3d2;border-radius:8px;text-decoration:none;width:100%;padding:20px;margin:0 auto;box-sizing:border-box;font-family:Arial,'微軟正黑體','Microsoft JhengHei','新細明體',PMingLiU,'細明體',MingLiU,sans-serif;background-image:linear-gradient(#ffffff, #d3d3d3)}
 h1{font-size:2em;text-align:center;margin:0;font-weight:500}h2{font-size:1em;margin:0;font-weight:normal;}img{border:0;float:right}fieldset{margin:0;padding:0;border:0}fieldset input, fieldset select, fieldset textarea{border:1px solid #c9b7a2;background:#e4d5c3;border-radius:4px;color:#725129;padding:8px;margin-bottom:20px;width:280px;max-width:100%;box-sizing:border-box;}
 fieldset textarea{height:48px;}
-fieldset input:focus, fieldset select:focus, fieldset textarea:focus{background:#fff;}div{margin:8px 0;text-align:right;}.submit-button{border:1px solid #447314;background-image:linear-gradient(#FFF, #227700);border-radius:4px;margin:0 20px;padding:0 20px;font-size:1em;line-height:2}.submit-button:hover{background-image:linear-gradient(#227700, #FFF)}.submit-button:active{background-image:linear-gradient(#227700, #FFF);color:#999}
+fieldset input:focus, fieldset select:focus, fieldset textarea:focus{background:#fff;}div{margin:8px 0;text-align:right;}.SubmitButton{border:1px solid #447314;background-image:linear-gradient(#FFF, #227700);border-radius:4px;margin:0 20px;padding:0 20px;font-size:1em;line-height:2}.SubmitButton:hover{background-image:linear-gradient(#227700, #FFF)}.SubmitButton:active{background-image:linear-gradient(#227700, #FFF);color:#999}
 @media only screen and (max-width:640px){img{display:none}body{padding:1px}}</style>
 <link rel='dns-prefetch preconnect' href='https://saleforce.lokema.com.tw/form/form.save.asp' />
 </head>
 <body>
-<form accept-charset='UTF-8' autocomplete='on' method='post' action='https://saleforce.lokema.com.tw/form/form.save.asp' onsubmit='submit-button.disabled=true;return true;'>
+<form accept-charset='UTF-8' autocomplete='on' method='post' action='https://saleforce.lokema.com.tw/form/form.save.asp' onsubmit='SubmitButton.disabled=true;return true;'>
 	<h1>申裝洽詢</h1>
 	<fieldset>
 	<h2>洽詢項目*</h2>
@@ -43,7 +43,7 @@ fieldset input:focus, fieldset select:focus, fieldset textarea:focus{background:
 	</fieldset>
 	<div>
 		<a href='https://lokema.blogspot.com/p/privacy.html' target='_blank'>個資法義務告知書</a>
-		<input name='submit-button' class='submit-button' type='submit' value='發送' />
+		<input name='SubmitButton' class='SubmitButton' type='submit' value='發送' />
 	</div>
 	<input type='hidden' name='i' value='申辦'>
 </form>
