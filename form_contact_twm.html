@@ -43,13 +43,13 @@ body{margin:0;padding:0;}
 	</select><br />
 	<div class="form-title">您的稱謂</div>
 	<img id="Form-Agent" src="form_contact_agent.png" style="border:0; float:right;">
-	<input class="form-field" type="text" name="姓名" placeholder="先生/小姐" /><br />
+	<input class="form-field" type="text" name="姓名" placeholder="先生/小姐" maxlength="2" /><br />
 	<div class="form-title">聯絡電話*&nbsp;&nbsp;<span style='font-size:10px;'>[請勿輸入符號，市話請加區域碼]</span></div>
 	<input class="form-field" type="tel" name="電話" alt='9999999999' onblur='ChangeMask(this);CheckPhone(this);' required /><br />
 	<!--<div class="form-title">LINE ID</div>
 	<input class="form-field" type="text" name="LINEid" /><br />-->
 	<div class="form-title">縣市區域&nbsp;&nbsp;<span style='font-size:10px;'>[預計安裝服務的區市鄉鎮]</span></div>
-	<input class="form-field" type="text" name="地址" required /><br />
+	<input class="form-field" type="text" name="地址" maxlength="6" required /><br />
 	<div class="form-title">補充說明</div>
 	<textarea class="form-field" name="補充" rows="3" cols="30"></textarea><br />
 	<div class="submit-container">

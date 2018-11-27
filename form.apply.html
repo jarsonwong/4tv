@@ -17,7 +17,7 @@ fieldset input:focus, fieldset select:focus, fieldset textarea:focus{background:
 	<h1>申裝洽詢</h1>
 	<fieldset>
 	<h2>洽詢項目*</h2>
-	<select name='項目' class='form-field' required>
+	<select name='項目' required>
 		<option value=''>-</option>
 		<option value='*新申裝有線電視'>新申裝有線電視</option>
 		<option value='*新申裝有線電視+數位電視'>新申裝有線電視+數位電視</option>
@@ -31,11 +31,11 @@ fieldset input:focus, fieldset select:focus, fieldset textarea:focus{background:
 	</select>
 	<h2>您的稱謂*</h2>
 	<img src='form.apply.png'>
-	<input type='text' name='姓名' placeholder='先生/小姐' />
+	<input type='text' name='姓名' placeholder='先生/小姐' maxlength='2' />
 	<h2>聯絡電話*&nbsp;&nbsp;<small>[請勿輸入符號，市話請加區域碼]</small></h2>
 	<input type='tel' name='電話' pattern='09\d{8}|0[2-8]\d{7,8}' required />
 	<h2>縣市區域*&nbsp;&nbsp;<small>[預計安裝服務的區市鄉鎮]</small></h2>
-	<input type='text' name='地址' required />
+	<input type='text' name='地址' maxlength='6' required />
 	<h2>裝機日期</h2>
 	<input type='date' name='日期' autocomplete='off' />
 	<h2>補充說明</h2>
