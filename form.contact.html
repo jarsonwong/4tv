@@ -15,6 +15,37 @@ form div{margin:8px 0;text-align:right;}
 .SubmitButton:active{background-image:linear-gradient(#227700, #FFF);color:#999}
 @media only screen and (max-width:640px){body{padding:1px}fieldset img{display:none}form{padding:40px 10px 20px;}}</style>
 <link rel='dns-prefetch' href='https://saleforce.lokema.com.tw/form/form.save.asp' />
+<!-- Smartsupp Live Chat script -->
+<script type="text/javascript">
+function getUrlParameter(name) {
+    name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+    var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+    var results = regex.exec(location.search);
+    return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+};
+var fKey = getUrlParameter('key');
+switch(fKey){
+  case 'htc':
+  case 'nty':
+  case 'cto':
+  case 'lulu':
+  case 'fmg':
+  case 'ntn':
+  case 'ksg':
+  case 'pnc':
+	var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+	(function(){
+	var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+	s1.async=true;
+	s1.src='https://embed.tawk.to/5c009cb240105007f37a4fbc/default';
+	s1.charset='UTF-8';
+	s1.setAttribute('crossorigin','*');
+	s0.parentNode.insertBefore(s1,s0);
+	})();
+	break;
+  default:
+}
+</script>
 </head>
 <body>
 <form accept-charset='UTF-8' autocomplete='on' method='post' action='https://saleforce.lokema.com.tw/form/form.save.asp' onsubmit='SubmitButton.disabled=true;return true;'>
