@@ -47,7 +47,7 @@ h1{font-size:2em;text-align:center;margin:0;font-weight:500}h2{font-size:1em;mar
 		<a href='https://lokema.blogspot.com/p/privacy.html' target='_blank'>個資法義務告知書</a>
 		<input name='SubmitButton' class='SubmitButton' type='submit' value='發送' />
 	</div>
-	<input type='hidden' name='i' value='申辦'>
+	<input type='hidden' name='i' value='申辦'><input type='hidden' name='key' id='oKey'><input type='hidden' name='page' id='oPage'>
 </form>
 <script type="text/javascript">
 function ChatWindow() {
@@ -59,6 +59,7 @@ function getUrlParameter(name) {
     var results = regex.exec(location.search);
     return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
 };
+var fPage = document.referrer;
 var fKey = getUrlParameter('key');
 var fTime = new Date();
 var fHour = fTime.getHours();
@@ -75,9 +76,11 @@ switch(fKey){
 	var fObj = document.getElementById('ChatButton');
         fObj.style.display = "inline-block";
     };
-	break;
+    break;
   default:
 }
+document.getElementById('oKey').value = fKey;
+document.getElementById('oPage').value = fPage;
 </script>
 </body>
 </html>
