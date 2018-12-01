@@ -4,8 +4,8 @@
 <meta charset='UTF-8' />
 <meta name='viewport' content='width=device-width, initial-scale=1, maximum-scale=1' />
 <title>業務洽詢</title>
-<style>body{margin:0;padding:20px 10px}
-form{border:1px solid #f2e3d2;border-radius:8px;text-decoration:none;width:100%;padding:20px;margin:0 auto;box-sizing:border-box;font-family:Arial,'微軟正黑體','Microsoft JhengHei','新細明體',PMingLiU,'細明體',MingLiU,sans-serif;background-image:linear-gradient(#ffffff, #d3d3d3)}
+<style>body{margin:0;padding:0}
+form{border:1px solid #f2e3d2;border-radius:8px;text-decoration:none;width:100%;padding:25px 20px;margin:0 auto;box-sizing:border-box;font-family:Arial,'微軟正黑體','Microsoft JhengHei','新細明體',PMingLiU,'細明體',MingLiU,sans-serif;background-image:linear-gradient(#ffffff, #d3d3d3)}
 h1{font-size:2em;text-align:center;margin:0;font-weight:500}h2{font-size:1em;margin:0;font-weight:normal;}img{border:0;float:right}fieldset{margin:0;padding:0;border:0}fieldset input, fieldset select, fieldset textarea{border:1px solid #c9b7a2;background:#e4d5c3;border-radius:4px;color:#725129;padding:8px;margin-bottom:20px;width:280px;max-width:100%;box-sizing:border-box;}
 fieldset textarea{height:125px;}
 fieldset input:focus, fieldset select:focus, fieldset textarea:focus{background:#fff;}
@@ -13,42 +13,18 @@ form div{margin:8px 0;text-align:right;}
 .SubmitButton{border:1px solid #447314;background-image:linear-gradient(#FFF, #227700);border-radius:4px;margin:0 20px;padding:0 20px;font-size:1em;line-height:2}
 .SubmitButton:hover{background-image:linear-gradient(#227700, #FFF)}
 .SubmitButton:active{background-image:linear-gradient(#227700, #FFF);color:#999}
-@media only screen and (max-width:640px){body{padding:1px}fieldset img{display:none}form{padding:40px 10px 20px;}}</style>
+#ChatButton{display:inline-block;position:fixed;top:5px;right:5px;padding:5px;margin:0;border-radius:10px;color: #FFF;background-color:#10bc03;border-bottom:2px solid #2980B9;text-decoration:none;font-size:0.8em}
+#ChatButton{display:none}
+@media only screen and (max-width:640px){
+h1{margin-top:45px}
+form{padding:0 10px 5px;}
+fieldset img{display:none}
+}</style>
 <link rel='dns-prefetch' href='https://saleforce.lokema.com.tw/form/form.save.asp' />
-<!-- Smartsupp Live Chat script -->
-<script type="text/javascript">
-function getUrlParameter(name) {
-    name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
-    var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
-    var results = regex.exec(location.search);
-    return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
-};
-var fKey = getUrlParameter('key');
-switch(fKey){
-  case 'htc':
-  case 'nty':
-  case 'cto':
-  case 'lulu':
-  case 'fmg':
-  case 'ntn':
-  case 'ksg':
-  case 'pnc':
-	var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-	(function(){
-	var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-	s1.async=true;
-	s1.src='https://embed.tawk.to/5c009cb240105007f37a4fbc/default';
-	s1.charset='UTF-8';
-	s1.setAttribute('crossorigin','*');
-	s0.parentNode.insertBefore(s1,s0);
-	})();
-	break;
-  default:
-}
-</script>
 </head>
 <body>
 <form accept-charset='UTF-8' autocomplete='on' method='post' action='https://saleforce.lokema.com.tw/form/form.save.asp' onsubmit='SubmitButton.disabled=true;return true;'>
+	<a id='ChatButton' href='javascript:ChatWindow();'>💬 線上聊天</a>
 	<h1>業務洽詢</h1>
 	<fieldset>
 	<h2>洽詢項目*</h2>
@@ -81,5 +57,35 @@ switch(fKey){
 	</div>
 	<input type='hidden' name='i' value='聯繫'>
 </form>
+<script type="text/javascript">
+function ChatWindow() {
+    var myWindow = window.open('https://tawk.to/chat/5c009cb240105007f37a4fbc/default', '線上聊天', 'width=360,height=450');
+}
+function getUrlParameter(name) {
+    name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+    var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+    var results = regex.exec(location.search);
+    return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+};
+var fKey = getUrlParameter('key');
+var fTime = new Date();
+var fHour = fTime.getHours();
+switch(fKey){
+  case 'htc':
+  case 'nty':
+  case 'cto':
+  case 'lulu':
+  case 'fmg':
+  case 'ntn':
+  case 'ksg':
+  case 'pnc':
+    if (fHour>=9 && fHour<=18){
+	var fObj = document.getElementById('ChatButton');
+        fObj.style.display = "inline-block";
+    };
+	break;
+  default:
+}
+</script>
 </body>
 </html>
