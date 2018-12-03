@@ -64,6 +64,7 @@ var fKey = getUrlParameter('key');
 var fTime = new Date();
 var fHour = fTime.getHours();
 switch(fKey){
+  case '4tv':
   case 'htc':
   case 'nty':
   case 'cto':
@@ -72,7 +73,7 @@ switch(fKey){
   case 'ntn':
   case 'ksg':
   case 'pnc':
-    if (fHour>=9 && fHour<=18){
+    if (fHour>=9 && fHour<=20){
 	var fObj = document.getElementById('ChatButton');
         fObj.style.display = "inline-block";
     };
