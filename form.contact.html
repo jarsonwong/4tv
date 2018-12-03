@@ -9,6 +9,7 @@ form{border:1px solid #f2e3d2;border-radius:8px;text-decoration:none;width:100%;
 h1{font-size:2em;text-align:center;margin:0;font-weight:500}h2{font-size:1em;margin:0;font-weight:normal;}img{border:0;float:right}fieldset{margin:0;padding:0;border:0}fieldset input, fieldset select, fieldset textarea{border:1px solid #c9b7a2;background:#e4d5c3;border-radius:4px;color:#725129;padding:8px;margin-bottom:20px;width:280px;max-width:100%;box-sizing:border-box;}fieldset textarea{height:125px;}fieldset input:focus, fieldset select:focus, fieldset textarea:focus{background:#fff;}form div{margin:8px 0;text-align:right;}
 .SubmitButton{border:1px solid #447314;background-image:linear-gradient(#FFF, #227700);border-radius:4px;margin:0 20px;padding:0 20px;font-size:1em;line-height:2}.SubmitButton:hover{background-image:linear-gradient(#227700, #FFF)}.SubmitButton:active{background-image:linear-gradient(#227700, #FFF);color:#999}
 #ChatButton{display:inline-block;position:fixed;top:5px;right:5px;padding:5px;margin:0;border-radius:10px;border-bottom:2px solid #2980B9;font-size:0.8em;color:#FFF;background-color:#10BC03;text-decoration:none;-webkit-animation:glowing 1500ms infinite;-moz-animation:glowing 1500ms infinite;-o-animation:glowing 1500ms infinite;animation:glowing 1500ms infinite;}
+a,a:visited,a:hover{color:#00F}
 @-webkit-keyframes glowing{0%{background-color:#10BC03;-webkit-box-shadow:0 0 3px #10BC03;}30%{background-color:#10BC03;-webkit-box-shadow:0 0 40px #10BC03;}70%{background-color:#10BC03;-webkit-box-shadow:0 0 3px #10BC03;}}@-moz-keyframes glowing{0%{background-color:#10BC03;-webkit-box-shadow:0 0 3px #10BC03;}30%{background-color:#10BC03;-webkit-box-shadow:0 0 40px #10BC03;}70%{background-color:#10BC03;-webkit-box-shadow:0 0 3px #10BC03;}}@-o-keyframes glowing{0%{background-color:#10BC03;-webkit-box-shadow:0 0 3px #10BC03;}30%{background-color:#10BC03;-webkit-box-shadow:0 0 40px #10BC03;}70%{background-color:#10BC03;-webkit-box-shadow:0 0 3px #10BC03;}}@keyframes glowing{0%{background-color:#10BC03;-webkit-box-shadow:0 0 3px #10BC03;}30%{background-color:#10BC03;-webkit-box-shadow:0 0 40px #10BC03;}70%{background-color:#10BC03;-webkit-box-shadow:0 0 3px #10BC03;}}#ChatButton{display:none}
 @media only screen and (max-width:640px){h1{margin-top:45px}form{padding:0 10px 5px;}fieldset img{display:none}}</style>
 <link rel='dns-prefetch' href='https://saleforce.lokema.com.tw/form/form.save.asp' />
@@ -43,21 +44,17 @@ h1{font-size:2em;text-align:center;margin:0;font-weight:500}h2{font-size:1em;mar
 	<textarea name='補充'></textarea>
 	</fieldset>
 	<div>
-		<a href='https://lokema.blogspot.com/p/privacy.html' target='_blank'>個資法義務告知書</a>
+		<a href='#' onclick='OpenPrivacy();return false;'>📓 個資法義務告知書</a>
 		<input name='SubmitButton' class='SubmitButton' type='submit' value='發送' />
 	</div>
 	<input type='hidden' name='i' value='聯繫'><input type='hidden' name='key' id='oKey'><input type='hidden' name='page' id='oPage'>
-
 </form>
-<script type="text/javascript">
-function ChatWindow(){
-    var myWindow = window.open('https://tawk.to/chat/5c009cb240105007f37a4fbc/default', '線上聊天', 'width=360,height=450');
-}
-function getUrlParameter(name){
+<script>
+function getUrlParameter(name) {
     name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
     var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
     var results = regex.exec(location.search);
-    return results === null ? '' :decodeURIComponent(results[1].replace(/\+/g, ' '));
+    return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
 };
 var fPage = document.referrer;
 var fKey = getUrlParameter('key');
@@ -73,7 +70,7 @@ switch(fKey){
   case 'ntn':
   case 'ksg':
   case 'pnc':
-    if (fHour>=9 && fHour<=20){
+    if (fHour>8 && fHour<20){
 	var fObj = document.getElementById('ChatButton');
         fObj.style.display = "inline-block";
     };
@@ -82,6 +79,22 @@ switch(fKey){
 }
 document.getElementById('oKey').value = fKey;
 document.getElementById('oPage').value = fPage;
+
+function ChatWindow() {
+    var myWindow = window.open('https://tawk.to/chat/5c009cb240105007f37a4fbc/default', '線上聊天', 'width=360,height=450');
+}
+function OpenPrivacy() {
+  switch(fKey){
+    case 'mdc':
+    case 'mgc':
+    case 'gvc':
+    case 'phn':
+	var myWindow = window.open('https://www.twmbroadband.com/T01/about-news-detail_6_0_1086_239809.html');
+	break;
+    default:
+	var myWindow = window.open('https://www.kbro.com.tw/K01/about-news-detail_6_0_39_239066.html');
+  }
+}
 </script>
 </body>
 </html>
