@@ -3,6 +3,7 @@
 <head>
 <meta charset='UTF-8' />
 <meta name='viewport' content='width=device-width, initial-scale=1, maximum-scale=1' />
+<meta http-equiv='x-dns-prefetch-control' content='on' />
 <title>申裝洽詢</title>
 <style>body{margin:0;padding:0}
 form{border:1px solid #f2e3d2;border-radius:8px;text-decoration:none;width:100%;padding:25px 20px;margin:0 auto;box-sizing:border-box;font-family:Arial,'微軟正黑體','Microsoft JhengHei','新細明體',PMingLiU,'細明體',MingLiU,sans-serif;background-image:linear-gradient(#ffffff, #d3d3d3)}
@@ -38,7 +39,7 @@ a,a:visited,a:hover{color:#00F}
 	<h2>聯絡電話*&nbsp;&nbsp;<small>[請勿輸入符號，市話請加區域碼]</small></h2>
 	<input type='tel' name='電話' pattern='09\d{8}|0[2-8]\d{7,8}' required />
 	<h2>縣市區域*&nbsp;&nbsp;<small>[預計安裝服務的區市鄉鎮]</small></h2>
-	<input type='text' name='地址' maxlength='6' required />
+	<input type='text' name='地址' required />
 	<h2>裝機日期</h2>
 	<input type='date' name='日期' autocomplete='off' />
 	<h2>補充說明</h2>
@@ -71,7 +72,7 @@ switch(fKey){
   case 'ntn':
   case 'ksg':
   case 'pnc':
-    if (fHour>8 && fHour<20){
+    if (fHour>8 && fHour<19){
 	var fObj = document.getElementById('ChatButton');
         fObj.style.display = "inline-block";
     };
@@ -90,10 +91,10 @@ function OpenPrivacy() {
     case 'mgc':
     case 'gvc':
     case 'phn':
-	var myWindow = window.open('https://www.twmbroadband.com/T01/about-news-detail_6_0_1086_239809.html');
-	break;
+      var myWindow = window.open('https://www.twmbroadband.com/T01/about-news-detail_6_0_1086_239809.html');
+      break;
     default:
-	var myWindow = window.open('https://www.kbro.com.tw/K01/about-news-detail_6_0_39_239066.html');
+      var myWindow = window.open('https://www.kbro.com.tw/K01/about-news-detail_6_0_39_239066.html');
   }
 }
 </script>
