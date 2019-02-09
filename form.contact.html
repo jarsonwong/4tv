@@ -61,11 +61,12 @@ var fPage = document.referrer;
 var fKey = getUrlParameter('key');
 document.getElementById('oKey').value = fKey;
 document.getElementById('oPage').value = fPage;
-/*
+
 var fTime = new Date();
 var fHour = fTime.getHours();
 switch(fKey){
   case '4tv':
+  case 'cln':
   case 'htc':
   case 'nty':
   case 'cto':
@@ -74,14 +75,14 @@ switch(fKey){
   case 'ntn':
   case 'ksg':
   case 'pnc':
-    if (fHour>8 && fHour<19){
+    if (fHour>8 && fHour<20){
 	var fObj = document.getElementById('ChatButton');
         fObj.style.display = "inline-block";
     };
     break;
   default:
 }
-*/
+
 function ChatWindow() {
     var myWindow = window.open('https://tawk.to/chat/5c009cb240105007f37a4fbc/default', '線上聊天', 'width=360,height=450');
 }
