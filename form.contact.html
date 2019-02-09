@@ -39,13 +39,13 @@ a,a:visited,a:hover{color:#00F}
 	<input type='text' name='姓名' placeholder='先生/小姐' maxlength='2' />-->
 	<h2>聯絡電話*&nbsp;&nbsp;<small>[請勿輸入符號，市話請加區域碼]</small></h2>
 	<input type='tel' name='電話' pattern='09\d{8}|0[2-8]\d{7,8}' required />
-	<h2>縣市區域*&nbsp;&nbsp;<small>[服務所在的區市鄉鎮]</small></h2>
+	<h2>區市鄉鎮*&nbsp;&nbsp;<small>[申裝服務的區域]</small></h2>
 	<input type='text' name='地址' required />
 	<h2>補充說明</h2>
 	<textarea name='補充'></textarea>
 	</fieldset>
 	<div>
-		<a href='https://lokema.blogspot.com/p/privacy.html#main' target='_blank'><!--href='#' onclick='OpenPrivacy();return false;'-->📓 個資法義務告知書</a>
+		<a href='https://lokema.blogspot.com/p/privacy.html#main' target='_blank'>📓 個資法義務告知書</a>
 		<input name='SubmitButton' class='SubmitButton' type='submit' value='發送' />
 	</div>
 	<input type='hidden' name='i' value='聯繫'><input type='hidden' name='key' id='oKey'><input type='hidden' name='page' id='oPage'>
@@ -62,8 +62,6 @@ var fKey = getUrlParameter('key');
 document.getElementById('oKey').value = fKey;
 document.getElementById('oPage').value = fPage;
 
-var fTime = new Date();
-var fHour = fTime.getHours();
 switch(fKey){
   case '4tv':
   case 'cln':
@@ -75,6 +73,8 @@ switch(fKey){
   case 'ntn':
   case 'ksg':
   case 'pnc':
+    var fTime = new Date();
+    var fHour = fTime.getHours();
     if (fHour>8 && fHour<20){
 	var fObj = document.getElementById('ChatButton');
         fObj.style.display = "inline-block";
@@ -85,21 +85,6 @@ switch(fKey){
 
 function ChatWindow() {
     var myWindow = window.open('https://tawk.to/chat/5c009cb240105007f37a4fbc/default', '線上聊天', 'width=360,height=450');
-}
-function OpenPrivacy() {
-  switch(fKey){
-    case '4tv':
-      var myWindow = window.open('https://lokema.blogspot.com/p/privacy.html#Blog1');
-      break;
-    case 'mdc':
-    case 'mgc':
-    case 'gvc':
-    case 'phn':
-      var myWindow = window.open('https://www.twmbroadband.com/T01/about-news-detail_6_0_1086_239809.html');
-      break;
-    default:
-      var myWindow = window.open('https://www.kbro.com.tw/K01/about-news-detail_6_0_39_239066.html');
-  }
 }
 </script>
 </body>
